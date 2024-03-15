@@ -60,7 +60,7 @@ const BookManagement = () => {
           onEdit={handleEditBook}
         />
       )}
-      <h2 className="text-3xl m-5">จัดการหนังสือ</h2>
+      <h2 className="text-3xl mb-5">จัดการหนังสือ</h2>
       <ul className="flex flex-wrap">
         {books.map((book) => (
           <li

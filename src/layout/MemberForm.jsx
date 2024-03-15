@@ -49,6 +49,7 @@ const MemberForm = ({ onAdd }) => {
 
   return (
     <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
+      <h2 className="text-3xl mb-5">เพิ่มสมาชิก</h2>
       <form onSubmit={handleRegister} className="flex flex-col gap-2">
         <label className="form-control w-full max-w-xs">
           <div className="label">

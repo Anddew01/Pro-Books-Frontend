@@ -70,7 +70,7 @@ const MemberManagement = () => {
           onEdit={handleEditMember}
         />
       )}
-      <h2 className="text-3xl m-5">รายชื่อสมาชิก</h2>
+      <h2 className="text-3xl mb-5">รายชื่อสมาชิก</h2>
       <ul>
         {members.map((member) => (
           <li key={member.id} className="mb-2">

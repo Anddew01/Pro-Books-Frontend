@@ -110,12 +110,12 @@ const BorrowManagement = () => {
             <div className="m-1 mb-3">ที่อยู่ : {borrow.memberAddress}</div>
             <div className="m-1 mb-3">
               วันที่ยืม :{" "}
-              {moment(borrow.borrowDate).format("YYYY-MM-DD HH:mm:ss")}
+              {moment(borrow.borrowDate).format("DD-MM-YYYY HH:mm:ss")}
             </div>
             <div className="m-1 mb-3">
               วันที่คืน :{" "}
               {borrow.returnDate
-                ? moment(borrow.returnDate).format("YYYY-MM-DD HH:mm:ss")
+                ? moment(borrow.returnDate).format("DD-MM-YYYY HH:mm:ss")
                 : "ไม่มีข้อมูลวันคืน"}
             </div>
 
