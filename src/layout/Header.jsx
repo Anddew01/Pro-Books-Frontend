@@ -63,7 +63,7 @@ export default function Header() {
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </label>
-      <div className="flex-1">
+      {/* <div className="flex-1">
         {user?.id ? (
           <Link to="/home" className="btn btn-ghost text-xl">
             ยินดีต้อนรับ : {user.username}
@@ -73,6 +73,14 @@ export default function Header() {
             ยินดีต้อนรับ : {user?.id ? user.username : ""}
           </Link>
         )}
+      </div> */}
+      <div className="flex-auto justify-center">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/th/thumb/7/78/%E0%B8%95%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%B1%E0%B8%8D%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B8%93%E0%B9%8C%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%A0%E0%B8%B1%E0%B8%8F%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B8%B2%E0%B8%A1.svg/1200px-%E0%B8%95%E0%B8%A3%E0%B8%B2%E0%B8%AA%E0%B8%B1%E0%B8%8D%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%A9%E0%B8%93%E0%B9%8C%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%97%E0%B8%A2%E0%B8%B2%E0%B8%A5%E0%B8%B1%E0%B8%A2%E0%B8%A3%E0%B8%B2%E0%B8%8A%E0%B8%A0%E0%B8%B1%E0%B8%8F%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%84%E0%B8%B2%E0%B8%A1.svg.png"
+          alt="University Logo"
+          className="w-20 h-24 mr-2 ml-2"
+        />
+        <h1 className="text-xl font-bold">มหาวิทยาลัยราชภัฏมหาสารคาม</h1>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">

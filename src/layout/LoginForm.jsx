@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { createBrowserHistory } from 'history';
 
 const LoginForm = () => {
   const [input, setInput] = useState({
@@ -12,6 +13,8 @@ const LoginForm = () => {
   };
 
   const handleSubmit = async (e) => {
+    const history = createBrowserHistory();
+
     try {
       e.preventDefault();
       // Validation
@@ -29,6 +32,8 @@ const LoginForm = () => {
       });
 
       console.log(userResponse.data);
+      // เมื่อล็อกอินสำเร็จ ให้เปลี่ยนเส้นทางไปยังหน้า Home
+      history.push("/home");
       // รีเฟรชหน้าเว็บ
       window.location.reload();
     } catch (error) {
