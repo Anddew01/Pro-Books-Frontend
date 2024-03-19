@@ -54,8 +54,8 @@ const EditBookForm = ({ bookId, onClose, onEdit }) => {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
-      <div className="text-3xl mb-5">แก้ไขหนังสือ</div>
+    <div className="p-5  w-4/6 min-w-[500px] mx-auto  mt-5  border-2 border-pink-500 rounded">
+      <div className="text-3xl mb-5 font-bold">แก้ไขหนังสือ</div>
       <form
         className="flex flex-col gap-2 md:flex-row md:gap-4"
         onSubmit={handleEditBook}

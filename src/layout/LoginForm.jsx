@@ -42,16 +42,16 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
-      <div className="text-3xl mb-5">เข้าสู่ระบบ</div>
+    <div className="p-5 border w-4/6 min-w-[500px] mx-auto mt-5 border-pink-500 rounded">
+      <div className="text-3xl mb-5 font-bold">เข้าสู่ระบบ</div>
       <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ชื่อผู้ใช้</span>
+            <span className="label-text font-bold">ชื่อผู้ใช้</span>
           </div>
           <input
             type="text"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
             name="username"
             value={input.username}
             onChange={handleChange}
@@ -60,11 +60,11 @@ const LoginForm = () => {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">รหัสผ่าน</span>
+            <span className="label-text font-bold">รหัสผ่าน</span>
           </div>
           <input
             type="password"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
             name="password"
             value={input.password}
             onChange={handleChange}

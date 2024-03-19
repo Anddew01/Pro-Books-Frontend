@@ -99,45 +99,73 @@ const BorrowManagement = () => {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-[1000px] mx-auto rounded mt-5">
-      <h2 className="text-3xl m-5">การยืมคืนหนังสือ</h2>
+    <div className="p-5  w-4/6 min-w-[1000px] mx-auto  mt-5  ">
+      <h2 className="text-3xl mb-5 font-bold">การยืมคืนหนังสือ</h2>
       <ul>
-        {borrows.slice().reverse().map((borrow) =>  (
-          <li key={borrow.id} className="mb-2">
-            <div className="m-1">ชื่อหนังสือ : {borrow.bookTitle}</div>
-            <div className="m-1 mb-3">เลขบัตร : {borrow.memberIdCard}</div>
-            <div className="m-1 mb-3">ชื่อสมาชิก : {borrow.memberName}</div>
-            <div className="m-1 mb-3">ที่อยู่ : {borrow.memberAddress}</div>
-            <div className="m-1 mb-3">
-              วันที่ยืม :{" "}
-              {moment(borrow.borrowDate).format("DD-MM-YYYY HH:mm:ss")}
-            </div>
-            <div className="m-1 mb-3">
-              วันที่คืน :{" "}
-              {borrow.returnDate
-                ? moment(borrow.returnDate).format("DD-MM-YYYY HH:mm:ss")
-                : "ไม่มีข้อมูลวันคืน"}
-            </div>
-
-            <div className="m-1 mb-3">สถานะ : {borrow.status}</div>
-            <div className="flex">
-              {borrow.status === "ยืม" && (
-                <button
-                  onClick={() => handleReturn(borrow.id)}
-                  className="btn btn-outline btn-info btn-sm mr-2"
-                >
-                  คืนหนีงสือ
-                </button>
-              )}
-              <button
-                onClick={() => handleDelete(borrow.id)}
-                className="btn btn-outline btn-info btn-sm"
+        {borrows
+          .slice()
+          .reverse()
+          .map((borrow) => (
+            <li
+              key={borrow.id}
+              className="mb-4 p-4 border-2 border-pink-500 rounded"
+            >
+              <div className="m-1 mb-3">ชื่อหนังสือ : {borrow.bookTitle}</div>
+              <div className="m-1 mb-3">เลขบัตร : {borrow.memberIdCard}</div>
+              <div className="m-1 mb-3">ชื่อสมาชิก : {borrow.memberName}</div>
+              <div className="m-1 mb-3">ที่อยู่ : {borrow.memberAddress}</div>
+              <div className="m-1 mb-3">
+                วันที่ยืม :{" "}
+                {moment(borrow.borrowDate).format("DD-MM-YYYY HH:mm:ss")}
+              </div>
+              <div
+                className={`m-1 mb-3 ${
+                  moment(borrow.returnDate).isAfter(
+                    moment(borrow.borrowDate).add(3, "days")
+                  )
+                    ? "text-red-500 font-bold"
+                    : ""
+                }`}
               >
-                ลบรายการ
-              </button>
-            </div>
-          </li>
-        ))}
+                วันที่คืน :{" "}
+                {borrow.returnDate
+                  ? moment(borrow.returnDate).format("DD-MM-YYYY HH:mm:ss")
+                  : "ไม่มีข้อมูลวันคืน"}
+                {moment(borrow.returnDate).isAfter(
+                  moment(borrow.borrowDate).add(3, "days")
+                ) && (
+                  <span className="text-red-500 font-bold">
+                    {" "}
+                    (เสียค่าปรับ{" "}
+                    {5 *
+                      (moment(borrow.returnDate).diff(
+                        moment(borrow.borrowDate),
+                        "days"
+                      ) -
+                        2)}{" "}
+                    บาท)
+                  </span>
+                )}
+              </div>
+              <div className="m-1 mb-3">สถานะ : {borrow.status}</div>
+              <div className="flex mb-2">
+                {borrow.status === "ยืม" && (
+                  <button
+                    onClick={() => handleReturn(borrow.id)}
+                    className="btn btn-outline btn-info btn-sm mr-2"
+                  >
+                    คืนหนีงสือ
+                  </button>
+                )}
+                <button
+                  onClick={() => handleDelete(borrow.id)}
+                  className="btn btn-outline btn-info btn-sm"
+                >
+                  ลบรายการ
+                </button>
+              </div>
+            </li>
+          ))}
       </ul>
     </div>
   );

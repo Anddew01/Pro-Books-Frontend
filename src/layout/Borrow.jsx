@@ -109,19 +109,20 @@ const BorrowBookForm = () => {
     }
   };
 
+
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
-      <div className="text-3xl mb-5">ยืมคืน</div>
+    <div className="p-5  w-4/6 min-w-[500px] mx-auto  mt-5  border-2 border-pink-500 rounded">
+      <div className="text-3xl mb-5 font-bold">ยืมคืน</div>
       <form className="flex flex-col gap-2" onSubmit={handleBorrow}>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ชื่อสมาชิก</span>
+            <span className="label-text font-bold">ชื่อสมาชิก</span>
           </div>
           <select
             name="memberId"
             value={formData.memberId}
             onChange={handleChange}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
           >
             <option value="">-- เลือก ชื่อสมาชิก --</option>
             {members.map((member) => (
@@ -134,13 +135,13 @@ const BorrowBookForm = () => {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ประเภทหนังสือ</span>
+            <span className="label-text font-bold">ประเภทหนังสือ</span>
           </div>
           <select
             name="genre"
             value={selectedGenre}
             onChange={(e) => setSelectedGenre(e.target.value)}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
           >
             <option value="">-- เลือก ประเภทหนังสือ --</option>
             {[...new Set(books.map((book) => book.genre))].map((genre) => (
@@ -153,13 +154,13 @@ const BorrowBookForm = () => {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ชื่อหนังสือ</span>
+            <span className="label-text font-bold">ชื่อหนังสือ</span>
           </div>
           <select
             name="bookId"
             value={formData.bookId}
             onChange={handleChange}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
           >
             <option value="">-- เลือกหนังสือ --</option>
             {books
@@ -171,20 +172,6 @@ const BorrowBookForm = () => {
                   {book.title}
                 </option>
               ))}
-          </select>
-        </label>
-
-        <label className="form-control w-full max-w-xs">
-          <div className="label ">
-            <span className="label-text ">สถานะ</span>
-          </div>
-          <select
-            name="status"
-            value={formData.status}
-            onChange={handleChange}
-            className="input input-bordered w-full max-w-xs"
-          >
-            <option value="ยืม">ยืม</option>
           </select>
         </label>
 

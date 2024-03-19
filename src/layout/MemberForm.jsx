@@ -48,45 +48,45 @@ const MemberForm = ({ onAdd }) => {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
-      <h2 className="text-3xl mb-5">เพิ่มสมาชิก</h2>
+    <div className="p-5  w-4/6 min-w-[500px] mx-auto  mt-5  border-2 border-pink-500 rounded">
+      <h2 className="text-3xl mb-5 font-bold">เพิ่มสมาชิก</h2>
       <form onSubmit={handleRegister} className="flex flex-col gap-2">
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">เลขบัตร</span>
+            <span className="label-text font-bold">เลขบัตร</span>
           </div>
           <input
             type="text"
             name="memberIdCard"
             value={formData.memberIdCard}
             onChange={handleChange}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
           />
         </label>
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ชื่อ</span>
+            <span className="label-text font-bold">ชื่อ</span>
           </div>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
           />
         </label>
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ที่อยู่</span>
+            <span className="label-text font-bold">ที่อยู่</span>
           </div>
           <input
             type="text"
             name="address"
             value={formData.address}
             onChange={handleChange}
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
           />
         </label>
 

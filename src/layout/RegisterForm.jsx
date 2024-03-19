@@ -51,14 +51,14 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
-      <div className="text-3xl mb-5">สมัครสมาชิก</div>
+    <div className="p-5 border w-4/6 min-w-[500px] mx-auto mt-5 border-pink-500 rounded">
+      <div className="text-3xl mb-5 font-bold">สมัครสมาชิก</div>
       <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
         {["username", "password", "confirmPassword", "email"].map(
           (fieldName) => (
             <label key={fieldName} className="form-control w-full max-w-xs">
-              <div className="label">
-                <span className="label-text">
+              <div className="label ">
+                <span className="label-text font-bold ">
                   {fieldName === "username" && "ชื่อผู้ใช้"}
                   {fieldName === "password" && "รหัสผ่าน"}
                   {fieldName === "confirmPassword" && "ยืนยันรหัสผ่าน"}
@@ -71,7 +71,7 @@ export default function RegisterForm() {
                     ? "password"
                     : "text"
                 }
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs border-pink-500 border-2"
                 name={fieldName}
                 value={input[fieldName]}
                 onChange={handleChange}

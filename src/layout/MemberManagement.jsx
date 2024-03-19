@@ -62,7 +62,7 @@ const MemberManagement = () => {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-[1000px] mx-auto rounded mt-5">
+    <div className="p-5 w-4/6 min-w-[1000px] mx-auto rounded mt-5">
       {showEditForm && (
         <EditMemberForm
           memberId={editMemberId}
@@ -70,11 +70,11 @@ const MemberManagement = () => {
           onEdit={handleEditMember}
         />
       )}
-      <h2 className="text-3xl mb-5">รายชื่อสมาชิก</h2>
+      <h2 className="text-3xl mb-5 font-bold">รายชื่อสมาชิก</h2>
       <ul>
         {members.map((member) => (
-          <li key={member.id} className="mb-2">
-            <div className="m-1">เลขบัตร: {member.memberIdCard}</div>
+          <li key={member.id} className="mb-4  border-2 border-pink-500 rounded p-4">
+            <div className="m-1 mb-3">เลขบัตร: {member.memberIdCard}</div>
             <div className="m-1 mb-3">ชื่อ: {member.name}</div>
             <div className="m-1 mb-3">ที่อยู่: {member.address}</div>
             <div>

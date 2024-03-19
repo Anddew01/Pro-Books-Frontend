@@ -52,7 +52,7 @@ const BookManagement = () => {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-full mx-auto rounded mt-5">
+    <div className="p-4  w-4/6 min-w-full mx-auto  mt-5  border-2 border-pink-500 rounded">
       {showEditForm && (
         <EditBookForm
           bookId={editBookId}
@@ -60,7 +60,7 @@ const BookManagement = () => {
           onEdit={handleEditBook}
         />
       )}
-      <h2 className="text-3xl mb-5">รายการหนังสือ</h2>
+      <h2 className="text-3xl mb-5 font-bold">รายการหนังสือ</h2>
       <ul className="flex flex-wrap">
         {books.map((book) => (
           <li
@@ -68,7 +68,7 @@ const BookManagement = () => {
             className="mb-4 flex w-full md:w-1/2 lg:w-1/3 xl:w-1/4"
           >
             <div>
-              <div className="m-1">ชื่อหนังสือ : {book.title}</div>
+              <div className="m-1 mb-3">ชื่อหนังสือ : {book.title}</div>
               <div className="m-1 mb-3">ชื่อผู้แต่ง : {book.author}</div>
               <div className="m-1 mb-3">ประเภท : {book.genre}</div>
               <div className="m-1 mb-3">จำนวนหน้า : {book.pageCount}</div>

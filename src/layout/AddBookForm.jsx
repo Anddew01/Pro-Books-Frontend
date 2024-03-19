@@ -58,16 +58,16 @@ const AddBookForm = () => {
   };
 
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
-      <div className="text-3xl mb-5">เพิ่มหนังสือ</div>
+    <div className="p-5 w-4/6 min-w-[500px] mx-auto mt-5  border-2 border-pink-500 rounded">
+      <div className="text-3xl mb-5 font-bold">เพิ่มหนังสือ</div>
       <form className="flex flex-col gap-2" onSubmit={handleAddBook}>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ชื่อหนังสือ</span>
+            <span className="label-text font-bold">ชื่อหนังสือ</span>
           </div>
           <input
             type="text"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
             name="title"
             value={formData.title}
             onChange={handleChange}
@@ -76,11 +76,11 @@ const AddBookForm = () => {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ชื่อผู้แต่ง</span>
+            <span className="label-text font-bold">ชื่อผู้แต่ง</span>
           </div>
           <input
             type="text"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
             name="author"
             value={formData.author}
             onChange={handleChange}
@@ -89,11 +89,11 @@ const AddBookForm = () => {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">ประเภท</span>
+            <span className="label-text font-bold">ประเภท</span>
           </div>
           <input
             type="text"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
             name="genre"
             value={formData.genre}
             onChange={handleChange}
@@ -102,11 +102,11 @@ const AddBookForm = () => {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">จำนวนหน้า</span>
+            <span className="label-text font-bold">จำนวนหน้า</span>
           </div>
           <input
             type="number"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
             name="pageCount"
             value={formData.pageCount}
             onChange={handleChange}
@@ -115,7 +115,7 @@ const AddBookForm = () => {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">รูปภาพ</span>
+            <span className="label-text font-bold">รูปภาพ</span>
           </div>
           <img
             src={formData.image && URL.createObjectURL(formData.image)}
@@ -124,7 +124,7 @@ const AddBookForm = () => {
           />
           <input
             type="file"
-            className="input input-bordered w-full max-w-xs"
+            className="input input-bordered w-full max-w-xs border-pink-500 border-2"
             name="image"
             onChange={handleChange}
           />

@@ -62,8 +62,8 @@ const RecordList = () => {
   }, []);
 
   return (
-    <div className="p-5 border w-4/6 min-w-[1000px] mx-auto rounded mt-5 ">
-      <h2 className="text-3xl mb-5">ประวัติการยืมคืน</h2>
+    <div className="p-5 w-4/6 min-w-[1000px] mx-auto rounded mt-5">
+      <h2 className="text-3xl mb-5 font-bold">ประวัติการยืมคืน</h2>
       <ul>
         {records
           .slice()
@@ -80,11 +80,34 @@ const RecordList = () => {
                 วันที่ยืม:{" "}
                 {moment(record.borrowDate).format("DD-MM-YYYY HH:mm:ss")}
               </div>
-              <div>
-                วันที่คืน:{" "}
+              <div
+                className={`m-1 mb-3 ${
+                  moment(record.returnDate).isAfter(
+                    moment(record.borrowDate).add(3, "days")
+                  )
+                    ? "text-red-500 font-bold"
+                    : ""
+                }`}
+              >
+                วันที่คืน :{" "}
                 {record.returnDate
                   ? moment(record.returnDate).format("DD-MM-YYYY HH:mm:ss")
                   : "ไม่มีข้อมูลวันคืน"}
+                {moment(record.returnDate).isAfter(
+                  moment(record.borrowDate).add(3, "days")
+                ) && (
+                  <span className="text-red-500 font-bold">
+                    {" "}
+                    (เสียค่าปรับ{" "}
+                    {5 *
+                      (moment(record.returnDate).diff(
+                        moment(record.borrowDate),
+                        "days"
+                      ) -
+                        2)}{" "}
+                    บาท)
+                  </span>
+                )}
               </div>
             </li>
           ))}
