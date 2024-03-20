@@ -13,6 +13,8 @@ const BorrowBookForm = () => {
   const [members, setMembers] = useState([]);
   const [userId, setUserId] = useState(null);
   const [selectedGenre, setSelectedGenre] = useState("");
+  const [borrows, setBorrows] = useState([]);
+  const [memberBorrows, setMemberBorrows] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -66,6 +68,43 @@ const BorrowBookForm = () => {
     fetchMembers();
   }, [selectedGenre]); // ให้ useEffect ทำงานเมื่อ selectedGenre เปลี่ยนแปลง
 
+  useEffect(() => {
+    console.log("fetchBorrow");
+    const fetchBorrows = async () => {
+      try {
+        if (!formData.memberId) return;
+        const borrowResponse = await axios.get(
+          "http://localhost:8889/borrow/borrows",
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+            params: { memberId: formData.memberId },
+          }
+        );
+        setBorrows(borrowResponse.data);
+      } catch (error) {
+        console.error("Error fetching borrows:", error.message);
+      }
+    };
+
+    console.log(formData.memberId);
+    fetchBorrows();
+  }, [formData.memberId]);
+
+  useEffect(() => {
+    console.log(borrows);
+    if (borrows.length > 0) {
+      const memberBorrows = borrows.filter(
+        (borrow) =>
+          Number(borrow.memberId) === Number(formData.memberId) &&
+          borrow.status === formData.status
+      );
+      console.log("Member borrows:", memberBorrows);
+      setMemberBorrows(memberBorrows);
+    }
+  }, [borrows, formData.memberId, formData.status]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -105,10 +144,9 @@ const BorrowBookForm = () => {
       });
     } catch (error) {
       console.error(error.message);
-      alert("เกิดข้อผิดพลาดขณะทำรายการ กรุณาลองอีกครั้ง");
+      alert("หนังสือถูกยืมครบตามที่กำหนดแล้ว");
     }
   };
-
 
   return (
     <div className="p-5  w-4/6 min-w-[500px] mx-auto  mt-5  border-2 border-pink-500 rounded">
@@ -132,6 +170,14 @@ const BorrowBookForm = () => {
             ))}
           </select>
         </label>
+
+        <div className="mt-2 font-bold">
+          {formData.memberId && (
+            <div>
+              <strong>จำนวนหนังสือที่ยืมแล้ว:</strong> {memberBorrows.length} เล่ม
+            </div>
+          )}
+        </div>
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
